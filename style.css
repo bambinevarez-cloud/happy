@@ -1,1 +1,408 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
 
+body{
+background:#050816;
+overflow:hidden;
+color:white;
+}
+
+.hidden{
+display:none;
+}
+
+/* ESTRELLAS */
+
+#stars{
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(white 1px, transparent 1px);
+background-size:40px 40px;
+opacity:.25;
+animation:moveStars 80s linear infinite;
+z-index:-1;
+}
+
+@keyframes moveStars{
+from{
+transform:translateY(0);
+}
+to{
+transform:translateY(-1000px);
+}
+}
+
+/* LOADER */
+
+#loader{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.glass{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.1);
+border-radius:25px;
+padding:40px;
+}
+
+.progress{
+width:350px;
+height:18px;
+background:#222;
+border-radius:50px;
+margin-top:20px;
+overflow:hidden;
+}
+
+.bar{
+height:100%;
+background:#ff5fa2;
+width:0%;
+animation:load 4s forwards;
+}
+
+@keyframes load{
+100%{
+width:100%;
+}
+}
+
+/* APP */
+
+.screen{
+display:none;
+height:100vh;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+padding:20px;
+text-align:center;
+}
+
+.screen.active{
+display:flex;
+}
+
+.card h1{
+font-size:4rem;
+color:#ff5fa2;
+}
+
+.card p{
+margin-top:20px;
+font-size:1.2rem;
+}
+
+.story{
+max-width:700px;
+}
+
+.story h2{
+margin-bottom:20px;
+color:#ff5fa2;
+}
+
+.story p{
+font-size:1.3rem;
+line-height:2;
+margin-bottom:10px;
+}
+
+button{
+margin-top:30px;
+padding:15px 30px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+background:#ff5fa2;
+color:white;
+font-size:18px;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px #ff5fa2;
+}
+
+.title{
+margin-bottom:40px;
+}
+
+.letters{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.letter{
+width:200px;
+height:220px;
+cursor:pointer;
+position:relative;
+transform-style:preserve-3d;
+transition:1s;
+}
+
+.letter.open{
+transform:rotateY(180deg);
+}
+
+.front,
+.back{
+position:absolute;
+width:100%;
+height:100%;
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:20px;
+backface-visibility:hidden;
+}
+
+.front{
+background:rgba(255,255,255,.1);
+font-size:5rem;
+}
+
+.back{
+background:#ff5fa2;
+padding:20px;
+transform:rotateY(180deg);
+}
+
+/* CONTADOR */
+
+#contador{
+font-size:2rem;
+color:#ff5fa2;
+margin-top:20px;
+line-height:2;
+}
+
+/* JUEGO */
+
+#gameArea{
+width:800px;
+max-width:90%;
+height:450px;
+border:2px solid #ff5fa2;
+margin-top:30px;
+position:relative;
+overflow:hidden;
+border-radius:20px;
+}
+
+.heart{
+position:absolute;
+font-size:40px;
+cursor:pointer;
+animation:pop .3s;
+}
+
+@keyframes pop{
+from{
+transform:scale(0);
+}
+to{
+transform:scale(1);
+}
+}
+
+/* UNIVERSO PECOSA */
+
+.planets{
+display:flex;
+gap:40px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:40px;
+}
+
+.planet{
+width:150px;
+height:150px;
+border-radius:50%;
+background:rgba(255,255,255,.08);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+cursor:pointer;
+font-size:3rem;
+transition:.4s;
+}
+
+.planet:hover{
+transform:scale(1.15);
+box-shadow:0 0 25px #ff5fa2;
+}
+
+#planetMessage{
+margin-top:40px;
+font-size:1.2rem;
+max-width:700px;
+min-height:80px;
+}
+
+/* CARTA FINAL */
+
+.envelope{
+font-size:8rem;
+cursor:pointer;
+transition:.4s;
+}
+
+.envelope:hover{
+transform:scale(1.15);
+}
+
+#finalLetter{
+display:none;
+max-width:700px;
+line-height:2;
+margin-top:40px;
+font-size:1.2rem;
+}
+
+#finalLetter.show{
+display:block;
+animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* CELULAR */
+
+@media(max-width:768px){
+
+.card h1{
+font-size:2.3rem;
+}
+
+.progress{
+width:280px;
+}
+
+.story p{
+font-size:1rem;
+}
+
+.letters{
+gap:20px;
+}
+
+.letter{
+width:150px;
+height:180px;
+}
+
+.planets{
+gap:20px;
+}
+
+.planet{
+width:110px;
+height:110px;
+font-size:2rem;
+}
+
+#contador{
+font-size:1.4rem;
+}
+
+#gameArea{
+height:300px;
+}
+
+.envelope{
+font-size:5rem;
+}
+
+#finalLetter{
+font-size:1rem;
+padding:0 15px;
+}
+
+}
+
+@media(max-width:480px){
+    .glass{
+        padding:20px; /* Reduced padding for very small screens */
+    }
+
+    .card h1{
+        font-size:2rem; /* Further reduce font size for very small screens */
+    }
+
+    .story p{
+        font-size:0.9rem; /* Further reduce story text font size */
+    }
+
+    .letter{
+        width:120px;
+        height:150px;
+        /* The original font-size for letter was applied to .front */
+        /* Re-evaluating the icon size for .front based on new letter dimensions */
+        /* font-size:4rem; */
+    }
+
+    .letter .front {
+        font-size: 3rem; /* Adjust letter icon size for smaller letter container */
+    }
+
+    .letter .back{
+        font-size:0.8rem; /* Adjust letter back text size */
+    }
+
+    .planet{
+        width:90px;
+        height:90px;
+        font-size:1.5rem; /* Further reduce planet size and icon */
+    }
+
+    .planet span {
+        font-size: 0.7rem; /* Adjust planet text size */
+    }
+
+    #contador{
+        font-size:1.2rem; /* Further reduce counter font size */
+    }
+
+    #gameArea{
+        height:250px; /* Reduce game area height */
+    }
+
+    .envelope{
+        font-size:4rem; /* Further reduce envelope size */
+    }
+
+    #finalLetter{
+        font-size:0.9rem; /* Further reduce final letter font size */
+    }
+
+    /* .finalLetter h2 is not present in index.html, so commenting it out */
+    /* .finalLetter h2{
+        font-size:1.5rem;
+    } */
+}
