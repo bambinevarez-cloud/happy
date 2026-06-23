@@ -1,1 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Para Pecosa ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="stars"></div>
+
+<!-- LOADER -->
+<section id="loader">
+
+    <div class="glass">
+
+        <h1>Buscando a Pecosa ❤️</h1>
+
+        <div class="progress">
+            <div class="bar"></div>
+        </div>
+
+        <p id="loaderText">
+            Inicializando sistema...
+        </p>
+
+    </div>
+
+</section>
+
+<!-- APP -->
+<div id="app" class="hidden">
+
+    <!-- PANTALLA 1 -->
+    <section class="screen active" id="screen1">
+
+        <div class="glass card">
+
+            <h1>Para Pecosa ❤️</h1>
+
+            <p>
+                Un pequeño proyecto creado por tu Güerito.
+            </p>
+
+            <button onclick="nextScreen(2)">
+                Entrar ✨
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PANTALLA 2 -->
+    <section class="screen" id="screen2">
+
+        <div class="glass story">
+
+            <h2>🌙 Marzo 2026</h2>
+
+            <p>
+                Fue cuando te conocí.
+            </p>
+
+            <p>
+                En ese momento no imaginaba
+                que te convertirías en alguien
+                tan importante para mí.
+            </p>
+
+            <button onclick="nextScreen(3)">
+                Continuar →
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PANTALLA 3 -->
+    <section class="screen" id="screen3">
+
+        <div class="glass story">
+
+            <h2>🌹 Abril 2026</h2>
+
+            <p>
+                Algo cambió.
+            </p>
+
+            <p>
+                Empezamos a convivir más.
+            </p>
+
+            <p>
+                A hablar más.
+            </p>
+
+            <p>
+                A conocernos mejor.
+            </p>
+
+            <p>
+                Y poco a poco te convertiste
+                en alguien especial para mí ❤️
+            </p>
+
+            <button onclick="nextScreen(4)">
+                Continuar →
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PANTALLA 4 -->
+    <section class="screen" id="screen4">
+
+        <h2 class="title">
+            💌 Algunas cosas que quiero decirte
+        </h2>
+
+        <div class="letters">
+
+            <div class="letter" onclick="openLetter(this)">
+                <div class="front">💌</div>
+                <div class="back">
+                    Me gusta que puedo hablar contigo de cualquier cosa.
+                </div>
+            </div>
+
+            <div class="letter" onclick="openLetter(this)">
+                <div class="front">💌</div>
+                <div class="back">
+                    Admiro mucho tu forma de ser.
+                </div>
+            </div>
+
+            <div class="letter" onclick="openLetter(this)">
+                <div class="front">💌</div>
+                <div class="back">
+                    Siempre consigues sacarme una sonrisa.
+                </div>
+            </div>
+
+        </div>
+
+        <button onclick="nextScreen(5)">
+            Seguir ❤️
+        </button>
+
+    </section>
+
+    <!-- PANTALLA 5 -->
+    <section class="screen" id="screen5">
+
+        <div class="glass story">
+
+            <h2>⏳ Desde Abril</h2>
+
+            <p>
+                Desde que empezamos a convivir más...
+            </p>
+
+            <div id="contador"></div>
+
+            <button onclick="nextScreen(6)">
+                Continuar ❤️
+            </button>
+
+        </div>
+
+    </section>
+
+  <!-- PANTALLA 6 -->
+
+<section class="screen" id="screen6">
+
+
+
+    <h2>❤️ Atrapa 10 corazones ❤️</h2>
+
+
+
+    <p>
+
+        Puntos:
+
+        <span id="score">0</span>/10
+
+    </p>
+
+
+
+    <div id="gameArea"></div>
+
+
+
+    <button
+
+        id="continueGame"
+
+        style="display:none;"
+
+        onclick="nextScreen(7)">
+
+        Seguir →
+
+    </button>
+
+
+
+</section>
+
+
+
+<!-- PANTALLA 7 -->
+
+<section class="screen" id="screen7">
+
+
+
+    <h2 class="title">
+
+        🌌 Universo Pecosa
+
+    </h2>
+
+
+
+    <div class="planets">
+
+
+
+        <div
+
+            class="planet"
+
+            onclick="showPlanet('smile')">
+
+
+
+            ☀️
+
+
+
+            <span>Sonrisa</span>
+
+
+
+        </div>
+
+
+
+        <div
+
+            class="planet"
+
+            onclick="showPlanet('personality')">
+
+
+
+            🪐
+
+
+
+            <span>Personalidad</span>
+
+
+
+        </div>
+
+
+
+        <div
+
+            class="planet"
+
+            onclick="showPlanet('talk')">
+
+
+
+            🌎
+
+
+
+            <span>Conversaciones</span>
+
+
+
+        </div>
+
+
+
+        <div
+
+            class="planet"
+
+            onclick="showPlanet('special')">
+
+
+
+            ⭐
+
+
+
+            <span>Especial</span>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+
+    <div id="planetMessage"></div>
+
+
+
+    <button onclick="nextScreen(8)">
+
+        Continuar →
+
+    </button>
+
+
+
+</section>
+
+
+
+<!-- PANTALLA 8 -->
+
+<section class="screen" id="screen8">
+
+
+
+    <div
+
+        class="envelope"
+
+        onclick="openFinalLetter()">
+
+
+
+        💌
+
+
+
+    </div>
+
+
+
+    <div id="finalLetter">
+
+
+
+        <h2>Pecosa ❤️</h2>
+
+
+
+        <p>
+
+
+
+            Gracias por llegar hasta aquí.
+
+
+
+            <br><br>
+
+
+
+            Todo esto está hecho con código.
+
+
+
+            <br><br>
+
+
+
+            Pero cada línea fue escrita
+
+            pensando en ti.
+
+
+
+            <br><br>
+
+
+
+            Nos conocimos en marzo.
+
+
+
+            <br><br>
+
+
+
+            Pero abril fue el inicio
+
+            de algo mucho más especial.
+
+
+
+            <br><br>
+
+
+
+            Gracias por cada conversación.
+
+
+
+            <br><br>
+
+
+
+            Gracias por cada sonrisa.
+
+
+
+            <br><br>
+
+
+
+            Gracias por cada momento.
+
+
+
+            <br><br>
+
+
+
+            ❤️
+
+
+
+            <br><br>
+
+
+
+            Tu Güerito
+
+
+
+        </p>
+
+
+
+    </div>
+
+
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
